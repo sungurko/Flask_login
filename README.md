@@ -4,8 +4,8 @@ Flask-Login, предназначен для обработки пользова
 Совместно с Flask-Login, используется Flask-SQLAlchemy и встраиваемую реляционную бд SQLite.
 
 Документация
-https://flask-login.readthedocs.io/en/latest/
-http://flask-sqlalchemy.pocoo.org/2.3/quickstart/
+1. https://flask-login.readthedocs.io/en/latest/
+2. http://flask-sqlalchemy.pocoo.org/2.3/quickstart/
 
 Настройка окружения
 
