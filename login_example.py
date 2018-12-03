@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
@@ -20,22 +20,38 @@ class User(UserMixin, db.Model):
 def load_user(user_id):
 	return User.query.get(int(user_id))
 
-@app.route('/')
-def index():
-	user = User.query.filter_by(username='sungurov').first()
+#@app.route('/')
+#def index():
+#	user = User.query.filter_by(username='sungurov').first()
+#	login_user(user)
+#	return 'Вы вошли в систему !'
+
+
+@app.route('/login')
+def login():
+	return render_template('login.html')
+
+@app.route('/logmein', methods=['POST'])
+def logmein():
+	username  = request.form['username']
+	user = User.query.filter_by(username=username).first()
+
+	if not user:
+		return '<h1>Пользователь не найден</h1>'
 	login_user(user)
-	return 'You are now logged in !'
+	return '<h1>Вы вошли в систему!</h1>' + current_user.username
+
 
 @app.route('/logout')
 @login_required
 def logout():
 	logout_user()
-	return 'Вы вышли из системы!'
+	return '<h1>Вы вышли из системы!</h1>'
 
 @app.route('/home')
 @login_required
 def home():
-	return 'Текущий пользователь: ' + current_user.username
+	return '<h1>Текущий пользователь: </h1>' + current_user.username
 
 
 if __name__ == '__main__':
