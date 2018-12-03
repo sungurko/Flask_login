@@ -1,7 +1,7 @@
 # Flask_login
 Использование Flask-Login для обработки пользовательских сеансов в Flask.
 Flask-Login, предназначен для обработки пользовательских сеансов, вход в систему и выход из системы.
-Совместно с Flask-Login, используется Flask-SQLAlchemy и встраиваемую реляционную бд SQLite.
+Совместно с Flask-Login, используется Flask-SQLAlchemy и встраиваемая реляционная бд SQLite.
 
 Документация
 1. https://flask-login.readthedocs.io/en/latest/
